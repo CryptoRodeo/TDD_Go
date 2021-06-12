@@ -16,13 +16,20 @@ import "fmt"
 
 func TestHello(t *testing.T) {
 
+  assertCorrectMessage := func(t testing.TB, got, want string) {
+    t.Helper()
+    if got != want {
+      t.Errorf("Got %q want %q", got, want)
+     }
+  }
+
   t.Run("says hello to user", func(t *testing.T) {
     user := "Bryan"
     got := Hello(user)
     want := fmt.Sprintf("Hello, %s", user)
 
     if got != want {
-      t.Errorf("Got %q want %q", got, want)
+      assertCorrectMessage(t, got, want)
     }
   })
 
@@ -31,7 +38,7 @@ func TestHello(t *testing.T) {
     want := "Hello, World"
 
     if got != want {
-      t.Errorf("Got %q want %q", got, want)
+      assertCorrectMessage(t, got, want)
     }
   })
 }

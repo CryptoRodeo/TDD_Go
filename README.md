@@ -4,3 +4,5 @@
 
 [Art by Denise](https://twitter.com/deniseyu21)
 
+[Link to Learning Resource](https://quii.gitbook.io/learn-go-with-tests/)
+

@@ -16,14 +16,22 @@ package main
 import "fmt"
 
 const englishHelloPrefix = "Hello, "
+const spanishHelloPrefix = "Hola, "
+const spanish = "Spanish"
+const frenchHelloPrefix = "Bonjour, "
+const french = "French"
 
 func Hello(name string, language string) string {
   if name == "" {
     name = "World"
   }
 
-  if language == "Spanish" {
-    return "Hola, " + name
+  if language == spanish {
+    return spanishHelloPrefix + name
+  }
+
+  if language == french {
+    return frenchHelloPrefix + name
   }
   return fmt.Sprintf("%s%s", englishHelloPrefix, name)
 }

@@ -9,17 +9,20 @@ Writing a test is just like writing a function, with a few rules
 - For now, it's enough to know that your t of type *testing.T is your "hook" into the testing framework so you can do things like t.Fail() when you want to fail.
 **/
 
-package main 
+package main
 
 import "testing"
 import "fmt"
 
 func TestHello(t *testing.T) {
-  user := "Bryan"
-  got := Hello(user)
-  want := fmt.Sprintf("Hello, %s",user)
 
-  if got != want {
-    t.Errorf("Got %q want %q", got, want)
-  }
+  t.Run("says hello to user", func(t *testing.T) {
+    user := "Bryan"
+    got := Hello(user)
+    want := fmt.Sprintf("Hello, %s", user)
+
+    if got != want {
+      t.Errorf("Got %q want %q", got, want)
+    }
+  })
 }

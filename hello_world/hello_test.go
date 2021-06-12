@@ -17,7 +17,7 @@ import "fmt"
 func TestHello(t *testing.T) {
 
   assertCorrectMessage := func(t testing.TB, got, want string) {
-    t.Helper()
+    t.Helper() //needed to tell the test suite that this method is a helper. By doing this when it fails the line number reported will be in our function call rather than inside our test helper.
     if got != want {
       t.Errorf("Got %q want %q", got, want)
      }

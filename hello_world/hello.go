@@ -26,15 +26,32 @@ func Hello(name string, language string) string {
     name = "World"
   }
 
-  prefix := englishHelloPrefix
+  return greetingPrefix(language) + name
+}
 
+/**
+The function signature has a named return value (prefix string).
+-> This will create a variable called prefix in your function.
+-> You can return whatever it's set to by just calling return rather than return prefix.
+
+It will be assigned the "zero" value. This depends on the type, for example ints are 0 and for strings it is "".
+This will display in the Go Doc for your function so it can make the intent of your code clearer.
+default in the switch case will be branched to if none of the other case statements match.
+
+The function name starts with a lowercase letter. 
+-> In Go public functions start with a capital letter and private ones start with a lowercase. 
+We don't want the internals of our algorithm to be exposed to the world, so we made this function private.
+**/
+func greetingPrefix(language string) (prefix string) {
   switch language {
     case french: 
       prefix = frenchHelloPrefix
     case spanish:
       prefix = spanishHelloPrefix
+    default:
+      prefix = englishHelloPrefix
   }
-  return prefix + name
+  return
 }
 
 func main() {

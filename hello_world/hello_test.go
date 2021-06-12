@@ -25,7 +25,7 @@ func TestHello(t *testing.T) {
 
   t.Run("says hello to user", func(t *testing.T) {
     user := "Bryan"
-    got := Hello(user)
+    got := Hello(user, "")
     want := fmt.Sprintf("Hello, %s", user)
 
     if got != want {
@@ -34,7 +34,7 @@ func TestHello(t *testing.T) {
   })
 
   t.Run("say 'Hello, World' when an empty string is supplied", func(t *testing.T) {
-    got := Hello("")
+    got := Hello("","")
     want := "Hello, World"
 
     if got != want {
